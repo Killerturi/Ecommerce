@@ -1,0 +1,36 @@
+
+.homeContainer{
+    background: #fafafa;
+}
+
+.card_images {
+    width: 400px;
+ 
+}
+
+.card_img{
+    border-radius: 20px;
+    box-shadow: 1px 2px  10px ;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    position: relative;
+    z-index: 10;
+    top: -250px;
+}
+
+.itemcard1{
+    height: 90vh;
+}
+
+
+/* itemcard2_Container */
+
+.itemcard2_Container{
+    padding: 10px 30px;
+    margin-top: 10px;
+}
