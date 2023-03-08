@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@500&display=swap');
+
+.navbar {
+    font-family: 'Golos Text', sans-serif;
+}
+
 .nav_top {
     display: flex;
     justify-content: space-between;
@@ -94,12 +100,28 @@
     cursor: pointer;
 }
 
+.link {
+    text-decoration: none !important;
+    color: #ffffff !important;
+
+}
+
+
+
 .nav_bottom {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 1rem 1rem;
+    padding: 1rem;
 }
+
+.nav_bottom span {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    color: #232f3e;
+}
+
 
 .nav_bottom_img {
     width: 100px;
@@ -129,7 +151,9 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #7366ee;
+    background-color: #ffffff;
+    background: transparent;
+    backdrop-filter: blur(15px);
     min-width: 360px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 11;
@@ -140,20 +164,21 @@
 .dropdown-content h3 {
     font-weight: bold;
     font-size: larger;
-    color: aliceblue;
+    color: rgb(42, 0, 230);
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 7px 10px;
     text-decoration: none;
     display: block;
 }
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #dddddd;
+    background-color: #ffffff;
+    border-radius: 15px;
 }
 
 /* Show the dropdown menu on hover */

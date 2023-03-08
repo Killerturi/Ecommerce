@@ -1,0 +1,31 @@
+.singProduct_img>img {
+    width: 300px;
+    aspect-ratio: 1/1;
+}
+
+.single_btn {
+    border: 1px solid orange;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    border-radius: 15px;
+
+}
+
+.star_icon {
+    font-size: 14px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+
+
+
+}
+
+.offer_icon {
+    color: rgb(250, 130, 83);
+    margin: 0px 2px;
+}
+
+.offer_text {
+    font-weight: bold;
+}

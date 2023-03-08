@@ -1,36 +1,60 @@
+.homeContainer {
+    font-family: 'Fira Sans Condensed', sans-serif;
 
-.homeContainer{
-    background: #fafafa;
 }
 
-.card_images {
-    width: 400px;
- 
-}
 
-.card_img{
-    border-radius: 20px;
-    box-shadow: 1px 2px  10px ;
-}
 
-.card {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-    position: relative;
-    z-index: 10;
-    top: -250px;
-}
-
-.itemcard1{
-    height: 90vh;
-}
 
 
 /* itemcard2_Container */
 
-.itemcard2_Container{
+.itemcard2_Container {
     padding: 10px 30px;
-    margin-top: 10px;
+    margin-top: 20px;
+}
+
+.ItemCard2_img>img {
+    width: 200px;
+    margin: auto;
+    margin-bottom: 7px;
+}
+
+.ItemCard2_img>img:hover {
+    transform: scale(1.1);
+}
+
+.ItemCard3_left {
+    border-radius: 20px;
+    width: 300px;
+    padding: 15px;
+    box-shadow: 5px 7px 18px rgb(177, 169, 169);
+    margin-bottom: 20px;
+    margin-right: 10px;
+    /* border: 1px solid; */
+}
+
+.ItemCard3_left>img {
+    width: 300px;
+    aspect-ratio: 1/1;
+    padding-top: 40px;
+    object-fit: fill;
+}
+
+
+.ItemCard3_right {
+    width: 80%;
+    padding: 10px;
+
+    /* border: 1px solid; */
+}
+
+.ItemCard3_img>img {
+    width: 200px;
+    aspect-ratio: 1/1;
+}
+
+.ItemCard3_sliderSection {
+    border: 2px solid;
+
 }

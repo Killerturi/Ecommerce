@@ -11,7 +11,7 @@ const Itemcard2 = ({ type, heading }) => {
   return (
     <>
       <div className="itemcard2_Container">
-        <Heading />
+        <Heading heading={heading} />
         <div>
           <Swiper
             modules={[Navigation, Autoplay]}
@@ -41,26 +41,26 @@ const Itemcard2 = ({ type, heading }) => {
             }}
           >
             {type.map((val) => (
-              <div>
+              <div className="ItemCard2_sliderSection">
                 <SwiperSlide>
-                  <Link to={val.linked}>
-                    <section>
+                  <Link to={val.linked} style={{ textDecoration: "none" }}>
+                    <section className="ItemCard2_img">
                       <img src={val.img} alt="img" />
                     </section>
-                    <section className="ItemCard2_text">
-                    <span>{val.name}</span>
-                    <br />
-                    <span>
-                      Deal Price : <span>{val.price}</span>
-                    </span>
-                    <br />
-                    <span>
-                      MRP : <span>{val.mrp}</span>
-                    </span>
-                    <br />
-                    <span>
-                      You Save : <span>{val.discount}</span>
-                    </span>
+                    <section className="ItemCard2_text ">
+                      <p className="text-sky-600 hover:text-red-700">
+                        {val.name.slice(0, 50)}.....
+                      </p>
+
+                      <p className="text-gray-600">
+                        Deal Price : <b className="text-black">₹{val.price}</b>
+                      </p>
+
+                      <p className="text-gray-600  ">
+                        MRP : <span className="  line-through">{val.mrp}</span>{" "}
+                      </p>
+
+                      <p className="text-gray-600">You Save :{val.discount}</p>
                     </section>
                   </Link>
                 </SwiperSlide>
