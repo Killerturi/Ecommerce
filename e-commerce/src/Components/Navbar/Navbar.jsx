@@ -59,7 +59,7 @@ const Navbar = () => {
           <div className="nav_top_right">
             <Link to="/" className="link">
               <div>
-                <h1>LOGO</h1>
+                <h1 className="brand_name">Aj's shop</h1>
               </div>
             </Link>
           </div>

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap');
 .navbar {
     font-family: 'Golos Text', sans-serif;
 }
@@ -23,6 +23,13 @@
     align-items: center;
     justify-content: flex-start;
     gap: 25px;
+}
+
+.brand_name{
+    font-weight: bolder;
+    font-size: xx-large;
+    font-family: 'Rubik Iso', cursive;
+    padding-left: 25px;
 }
 
 .logo_img {
