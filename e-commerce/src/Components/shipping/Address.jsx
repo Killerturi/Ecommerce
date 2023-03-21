@@ -148,7 +148,7 @@ const Address = () => {
             <div className="form-group col-md-2">
               <label for="inputZip">Zip</label>
               <input
-                type="text"
+                type="number"
                 name="zip"
                 value={zip}
                 onChange={textHandle}
@@ -188,7 +188,7 @@ const Address = () => {
             >
               Net Banking
             </button>
-            <Link to={email ? "/lastpage" : ""}>
+            <Link to={payment ? "/lastpage" : ""}>
               <button
                 type="button"
                 className="address_btn bg-orange-400 rounded px-3 ml-3 my-4"
