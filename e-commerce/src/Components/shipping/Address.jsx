@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./address.css";
+import { toast } from "react-toastify";
 
 const Address = () => {
   const [details, setDetails] = useState({
@@ -20,16 +21,43 @@ const Address = () => {
 
   const addressHandle = (e) => {
     e.preventDefault();
-    setpayment(true);
+    if (email && number && address && address2 && city && zip) {
+      setpayment(true);
+      setDetails({
+        email: "",
+        number: "",
+        address: "",
+        address2: "",
+        city: "",
+        zip: "",
+      });
+      toast.success(" Address save successfully", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } else {
+      toast.warning(" Fill the inputs", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
-
-  /*   useEffect(() => {
-    window.scroll(0, 55);
-  }, []); */
 
   useEffect(() => {
     window.scroll(0, 205);
-  }, [payment]);
+  }, []);
 
   return (
     <>
@@ -55,6 +83,9 @@ const Address = () => {
               <label for="inputPassword4">Number</label>
               <input
                 type="number"
+                name="number"
+                value={number}
+                onChange={textHandle}
                 className="form-control"
                 id="inputPassword4"
                 placeholder="Number"
@@ -65,6 +96,9 @@ const Address = () => {
             <label for="inputAddress">Address</label>
             <input
               type="text"
+              name="address"
+              value={address}
+              onChange={textHandle}
               className="form-control"
               id="inputAddress"
               placeholder="1234 Main St"
@@ -74,6 +108,9 @@ const Address = () => {
             <label for="inputAddress2">Address 2</label>
             <input
               type="text"
+              name="address2"
+              value={address2}
+              onChange={textHandle}
               className="form-control"
               id="inputAddress2"
               placeholder="Apartment, studio, or floor"
@@ -82,7 +119,14 @@ const Address = () => {
           <div className="form-row">
             <div className="form-group col-md-6">
               <label for="inputCity">City</label>
-              <input type="text" className="form-control" id="inputCity" />
+              <input
+                type="text"
+                name="city"
+                value={city}
+                onChange={textHandle}
+                className="form-control"
+                id="inputCity"
+              />
             </div>
             <div className="form-group col-md-4">
               <label for="inputState">State</label>
@@ -103,7 +147,14 @@ const Address = () => {
             </div>
             <div className="form-group col-md-2">
               <label for="inputZip">Zip</label>
-              <input type="text" className="form-control" id="inputZip" />
+              <input
+                type="text"
+                name="zip"
+                value={zip}
+                onChange={textHandle}
+                className="form-control"
+                id="inputZip"
+              />
             </div>
           </div>
 
@@ -115,42 +166,37 @@ const Address = () => {
           <h1 className="header mx-3 rounded font-bold text-white pl-8 py-3">
             2. PAYMENT OPTIONS
           </h1>
-          {payment ? (
-            <div className=" ml-1 my-3">
+          <div className={payment ? " blurs ml-1 my-3" : "payment_blur"}>
+            <button
+              type="submit"
+              disabled
+              className="address_btn blurs bg-orange-400 rounded px-3 ml-3 my-4 "
+            >
+              Upi
+            </button>
+            <button
+              type="submit"
+              disabled
+              className="address_btn blurs bg-orange-400 rounded px-3 ml-3 my-4"
+            >
+              Debit / Credit Card
+            </button>
+            <button
+              type="submit"
+              disabled
+              className="address_btn blurs bg-orange-400 rounded px-3 ml-3 my-4"
+            >
+              Net Banking
+            </button>
+            <Link to={email ? "/lastpage" : ""}>
               <button
-                type="submit"
-                className="address_btn bg-orange-400 rounded px-3 ml-3 my-4 "
-              >
-                Upi
-              </button>
-              <button
-                type="submit"
+                type="button"
                 className="address_btn bg-orange-400 rounded px-3 ml-3 my-4"
               >
-                Debit / Credit Card
+                Cash On Delivery
               </button>
-              <button
-                type="submit"
-                className="address_btn bg-orange-400 rounded px-3 ml-3 my-4"
-              >
-                Net Banking
-              </button>
-              <Link to="/lastpage">
-                <button
-                  type="submit"
-                  className="address_btn bg-orange-400 rounded px-3 ml-3 my-4"
-                >
-                  Cash On Delivery
-                </button>
-              </Link>
-            </div>
-          ) : (
-            <>
-              <h1 className="text-center font-bold text-2xl my-2 underline py-8">
-                First fill the address section
-              </h1>
-            </>
-          )}
+            </Link>
+          </div>
         </div>
       </div>
     </>

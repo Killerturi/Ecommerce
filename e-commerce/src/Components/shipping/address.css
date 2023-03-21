@@ -21,6 +21,19 @@
     padding-top: 50px;
 }
 
-.lastpage > img{
+.lastpage>img {
     width: 250px;
+}
+
+
+.payment_blur button {
+    cursor: not-allowed;
+    color: #c0c0c0;
+    background-color: #ffffff;
+}
+
+.blurs {
+    cursor: not-allowed;
+    color: #c0c0c0;
+    background-color: #ffffff;
 }

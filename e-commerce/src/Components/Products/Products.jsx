@@ -30,6 +30,7 @@ const Products = ({ typeOfProduct }) => {
 
   useEffect(() => {
     getAllData();
+    window.scroll(0,70)
   }, [typeOfProduct]);
 
   console.log(data);
