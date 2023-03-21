@@ -76,7 +76,7 @@ const Cart = () => {
                 <hr />
                 {cartItemData.map((val, index) => {
                   const {
-                    images,
+                    thumbnail,
                     title,
                     description,
                     price,
@@ -87,7 +87,7 @@ const Cart = () => {
                     <CartItem
                       key={id}
                       title={title}
-                      images={images}
+                      images={thumbnail}
                       price={price}
                       discountPercentage={discountPercentage}
                       id={id}

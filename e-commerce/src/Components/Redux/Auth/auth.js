@@ -1,8 +1,8 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
   name: "auth",
-  initialState: [],
+  initialState: [1],
   reducers: {
     getAuth: (state, user) => {
       state.push(user.payload);
@@ -13,7 +13,7 @@ const authSlice = createSlice({
   },
 });
 
-const nameSlice = createSlice({
+export const nameSlice = createSlice({
   name: "name",
   initialState: [],
   reducers: {
@@ -25,15 +25,6 @@ const nameSlice = createSlice({
     },
   },
 });
-
-const store = configureStore({
-  reducer: {
-    auth: authSlice.reducer,
-    name: nameSlice.reducer,
-  },
-});
-
-export { store };
 
 export const { getAuth, getLogout } = authSlice.actions;
 export const { getName, removeName } = nameSlice.actions;

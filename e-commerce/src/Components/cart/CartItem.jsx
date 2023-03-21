@@ -3,6 +3,15 @@ import "./cart.css";
 import { toast } from "react-toastify";
 import AddSharpIcon from "@mui/icons-material/AddSharp";
 import RemoveSharpIcon from "@mui/icons-material/RemoveSharp";
+import { useDispatch } from "react-redux";
+import {
+  getDecDiscount,
+  getDecItem,
+  getDecPrice,
+  getIncDiscount,
+  getIncItem,
+  getIncPrice,
+} from "../Redux/Cart/cart";
 
 const CartItem = (props) => {
   const {
@@ -15,19 +24,24 @@ const CartItem = (props) => {
     DeleteRequest,
   } = props;
   const [count, setCount] = useState(1);
+  const dispatch = useDispatch();
+  let discount = (price * 31) / 100;
+
+  console.log(typeof discount);
 
   const handleInc = () => {
     setCount(count + 1);
-    // let number = parseFloat(cartItemData.price.replace(/,/g, ""));
-    // console.log(number);
-    // dispatch({ type: "priceIncrease", payload: number });
+    dispatch(getIncItem());
+    dispatch(getIncPrice(price));
+    dispatch(getIncDiscount(discount));
   };
   const handleDec = () => {
     if (count > 1) {
-      // let number = parseFloat(cartItemData.price.replace(/,/g, ""));
       // console.log(number);
       setCount(count - 1);
-      // dispatch({ type: "priceDecrease", payload: number });
+      dispatch(getDecItem());
+      dispatch(getDecPrice(price));
+      dispatch(getDecDiscount(discount));
     }
   };
 
@@ -36,7 +50,7 @@ const CartItem = (props) => {
       <div key={id} className="p-4">
         <div className="flex gap-6 items-center ">
           <section>
-            <img src={images[0]} alt="" className=" cart_mg" />
+            <img src={images} alt="" className=" cart_mg" />
           </section>
           <section>
             <p className=" pb-2 text-gray-700 font-semibold">
