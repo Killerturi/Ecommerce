@@ -1,7 +1,7 @@
 import axios from "axios";
 import "./singleProduct.css";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import { RotatingLines } from "react-loader-spinner";
@@ -105,9 +105,11 @@ const SingleProduct = (props) => {
                   <ShoppingCartIcon />
                   Add to cart
                 </button>
-                <button className="single_btn bg-orange-600">
-                  <ElectricBoltIcon /> Buy Now
-                </button>
+                <Link to="/address">
+                  <button className="single_btn bg-orange-600">
+                    <ElectricBoltIcon /> Buy Now
+                  </button>
+                </Link>
               </div>
             </section>
             <section className="w-full ml-2 ">

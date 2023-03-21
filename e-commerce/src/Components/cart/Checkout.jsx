@@ -1,6 +1,7 @@
 import { Discount } from "@mui/icons-material";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./cart.css";
 
 const Checkout = (props) => {
@@ -68,9 +69,11 @@ const Checkout = (props) => {
         </div>
         <hr />
         <div>
-          <button className="w-full bg-orange-500 cursor-pointer mt-2 py-2 text-xl text-white">
-            PLACE ORDER
-          </button>
+          <Link to="/address">
+            <button className="w-full bg-orange-500 cursor-pointer mt-2 py-2 text-xl text-white">
+              PLACE ORDER
+            </button>
+          </Link>
         </div>
       </div>
     </>

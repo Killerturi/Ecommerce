@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Cart from "../cart/Cart";
 import Home from "../Pages/Home";
 import Products from "../Products/Products";
+import Address from "../shipping/Address";
+import LastPage from "../shipping/LastPage";
 import LogIn from "../Signup-SignIn/LogIn";
 import SignUp from "../Signup-SignIn/Signup";
 import SingleProduct from "../SingleProduct/SingleProduct";
@@ -14,6 +16,9 @@ const AllRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/address" element={<Address />} />
+        <Route path="/lastpage" element={<LastPage />} />
+
         <Route
           path="/groceries"
           element={
