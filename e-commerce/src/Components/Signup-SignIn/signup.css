@@ -19,3 +19,20 @@
     margin-right: 50px;
     box-shadow: 5px 6px 20px black;
 }
+
+@media screen and (max-width:1050px) {
+    .signupContainer {
+        /* height: 100vh; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+    }
+
+    .signUp {
+        width: auto;
+        margin: auto;
+
+    }
+}

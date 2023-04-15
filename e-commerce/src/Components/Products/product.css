@@ -23,3 +23,13 @@
 .product:hover {
     box-shadow: 5px 6px 18px rgb(37, 28, 28);
 }
+
+
+@media screen and (max-width:1000px) {
+
+    .product_container {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

@@ -58,3 +58,34 @@
     border: 2px solid;
 
 }
+
+@media screen and (max-width:750px) {
+    .ItemCard3_left {
+        display: none;
+    }
+
+
+    .itemCard3 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+
+
+    .heading h1 {
+
+        font-size: medium;
+        padding-left: 0;
+    }
+
+    .heading span {
+
+        display: none;
+
+    }
+
+
+}

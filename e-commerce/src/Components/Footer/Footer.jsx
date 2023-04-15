@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <>
       <footer className="footer text-white ">
-        <div className="footer flex justify-around  text-white pt-8">
+        <div className="footer1 flex justify-around  text-white pt-8">
           <FooterCard1 type={ProductCategories} heading="PRODUCT CATEGORIES" />
           <FooterCard1 type={SiteInfo} heading="SITE INFO" />
           <FooterCard1 type={Know_us} heading="	Connect with Us" />

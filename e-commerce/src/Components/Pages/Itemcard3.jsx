@@ -12,7 +12,7 @@ const Itemcard3 = ({ type, heading, image }) => {
     <>
       <div className="itemcard3_Container mt-8 px-4">
         <Heading heading={heading} />
-        <div className="flex gap-2 justify-between">
+        <div className="itemCard3 flex gap-2 justify-between">
           <section className="ItemCard3_left">
             <img src={image} alt="" />
           </section>

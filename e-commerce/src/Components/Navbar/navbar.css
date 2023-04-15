@@ -30,9 +30,9 @@
 
 .brand_name {
     font-weight: bolder;
-    font-size: xx-large;
+    font-size: inherit;
     font-family: 'Rubik Iso', cursive;
-    padding-left: 25px;
+
 }
 
 .logo_img {
@@ -208,6 +208,15 @@
         font-size: 10px;
         /* color: blue; */
     }
+
+    .nav_bottom {
+        display: none;
+    }
+
+
+
+
+
 }
 
 
@@ -253,6 +262,18 @@
 @media screen and (max-width:450px) {
     .nav_top_mid {
         display: none;
+    }
+
+    .nav_top_left {
+        flex: .7;
+        justify-content:  flex-end;
+        gap: 10px;
+
+    }
+
+    .nav_top_right {
+        flex: .4;
+
     }
 
 }

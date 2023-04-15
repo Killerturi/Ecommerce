@@ -22,7 +22,7 @@ const Cart = () => {
   return (
     <>
       {cartData.length > 0 ? (
-        <div className="flex m-2  gap-4">
+        <div className="cart_container flex m-2  gap-4">
           <div className="cartItem">
             <section>
               <h1 className="text-3xl p-4 font-bold">Shopping Cart</h1>

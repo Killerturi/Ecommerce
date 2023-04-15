@@ -62,7 +62,7 @@ const Products = ({ typeOfProduct }) => {
           <h1 className="text-2xl pl-4 pt-4 font-bold">
             {typeOfProduct.toUpperCase()}
           </h1>
-          <div className="flex   justify-around p-8 gap-4 ">
+          <div className="product_container flex   justify-around p-8 gap-4 ">
             {data.map((val) => {
               return <Product data={val} typeOfProduct={typeOfProduct} />;
             })}

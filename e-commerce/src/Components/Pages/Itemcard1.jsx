@@ -3,11 +3,10 @@ import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import "./Home.css";
 
-
 const Itemcard1 = ({ type }) => {
   return (
     <>
-      <div className="itemcard1 my-2">
+      <div>
         <Slide>
           {type.map((val) => {
             return (
@@ -21,7 +20,6 @@ const Itemcard1 = ({ type }) => {
             );
           })}
         </Slide>
-       
       </div>
     </>
   );

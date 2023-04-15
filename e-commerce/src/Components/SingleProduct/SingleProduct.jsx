@@ -32,25 +32,6 @@ const SingleProduct = (props) => {
       });
   };
 
-  // const postSingleData = async (data) => {
-  //   console.log(data);
-  //   try {
-  //     let response = await axios.post(
-  //       `https://rus-digital-televisions.onrender.com/cart`,
-  //       data,
-  //       {
-  //         headers: { "Content-Type": "application/json" },
-  //       }
-  //     );
-  //     return response.data;
-  //   } catch (error) {
-  //     console.log(
-  //       "in the postSingleData function and error is :- ",
-  //       error.response.data
-  //     );
-  //   }
-  // };
-
   useEffect(() => {
     getSingleData();
   }, [typeOfProduct]);
@@ -92,12 +73,12 @@ const SingleProduct = (props) => {
         </div>
       ) : (
         <>
-          <main className="flex m-2 flex gap-6  mb-4">
-            <section className="w-92 flex flex-col items-center pl-6">
+          <main className="singleProduct_container flex m-2 flex gap-6  mb-4">
+            <section className="w-92 flex flex-col items-center pl-6 singleProduct_top">
               <div className="w-full border p-4 singProduct_img ">
                 <img src={singleData.thumbnail} alt="" />
               </div>
-              <div className="flex  gap-2 mt-4">
+              <div className="singleProduct_btn flex  gap-2 mt-4">
                 <button
                   className="single_btn bg-orange-400"
                   onClick={() => handlePost(singleData)}

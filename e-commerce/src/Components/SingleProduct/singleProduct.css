@@ -1,3 +1,10 @@
+.singProduct_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid b;
+}
+
 .singProduct_img>img {
     width: 300px;
     aspect-ratio: 1/1;
@@ -28,4 +35,24 @@
 
 .offer_text {
     font-weight: bold;
+}
+
+@media screen and (max-width:1000px) {
+
+    .singleProduct_container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .singleProduct_btn {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        /* border: 1px solid; */
+    }
+
+    .singleProduct_top{
+        padding-left: 0;
+    }
+
 }

@@ -19,3 +19,20 @@
     margin-right: 100px;
     box-shadow: 9px 8px 25px;
 }
+
+@media screen and (max-width:1050px) {
+    .loginContainer {
+        /* height: 100vh; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+    }
+
+    .login {
+        width: auto;
+        margin: auto;
+
+    }
+}
