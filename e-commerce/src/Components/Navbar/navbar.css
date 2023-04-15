@@ -187,7 +187,7 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #ffffff;
+    background-color: #1f1414;
     border-radius: 15px;
 }
 
@@ -197,6 +197,9 @@
     justify-content: space-around;
 }
 
+.dropdown-item:hover {
+    background: rgb(183, 181, 181);
+}
 
 
 

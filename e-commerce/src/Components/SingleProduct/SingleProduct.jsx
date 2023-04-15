@@ -8,6 +8,8 @@ import { RotatingLines } from "react-loader-spinner";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { addData } from "../Redux/Cart/cart";
 
 const SingleProduct = (props) => {
   const { typeOfProduct } = props;
@@ -16,10 +18,9 @@ const SingleProduct = (props) => {
   const PRICE = singleData.price * 80;
   const MRP = PRICE - (PRICE * singleData.discountPercentage) / 100;
   var navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
-
-  console.log(singleData);
 
   const getSingleData = () => {
     setLoading(true);
@@ -31,24 +32,24 @@ const SingleProduct = (props) => {
       });
   };
 
-  const postSingleData = async (data) => {
-    console.log(data);
-    try {
-      let response = await axios.post(
-        `https://rus-digital-televisions.onrender.com/cart`,
-        data,
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      return response.data;
-    } catch (error) {
-      console.log(
-        "in the postSingleData function and error is :- ",
-        error.response.data
-      );
-    }
-  };
+  // const postSingleData = async (data) => {
+  //   console.log(data);
+  //   try {
+  //     let response = await axios.post(
+  //       `https://rus-digital-televisions.onrender.com/cart`,
+  //       data,
+  //       {
+  //         headers: { "Content-Type": "application/json" },
+  //       }
+  //     );
+  //     return response.data;
+  //   } catch (error) {
+  //     console.log(
+  //       "in the postSingleData function and error is :- ",
+  //       error.response.data
+  //     );
+  //   }
+  // };
 
   useEffect(() => {
     getSingleData();
@@ -58,22 +59,21 @@ const SingleProduct = (props) => {
 
   const handlePost = (data) => {
     let newData = { ...data };
-
-    postSingleData(newData).then((res) => {
-      toast.success(" Item add to cart Successfully", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-      setTimeout(() => {
-        navigate("/cart");
-      }, 700);
+    console.log(newData);
+    dispatch(addData(newData));
+    toast.success(" Item add to cart Successfully", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
     });
+    setTimeout(() => {
+      navigate("/cart");
+    }, 700);
   };
 
   return (

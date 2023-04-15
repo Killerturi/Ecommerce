@@ -1,50 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const ITEMS =
+  localStorage.getItem("cartDatas") !== null
+    ? JSON.parse(localStorage.getItem("cartDatas"))
+    : [];
+
 export const itemSlice = createSlice({
-  name: "ItemNo",
+  name: "AddData",
   initialState: {
-    item: 0,
+    cartData: ITEMS,
   },
   reducers: {
-    getIncItem: (state) => {
-      state.item += 1;
+    addData: (state, action) => {
+      state.cartData = [...state.cartData, { ...action.payload, qty: 1 }];
+
+      localStorage.setItem("cartDatas", JSON.stringify(state.cartData));
     },
-    getDecItem: (state) => {
-      state.item -= 1;
+    removeItem: (state, action) => {
+      state.cartData = state.cartData.filter(
+        (val) => val.id !== action.payload
+      );
+    },
+    increseItem: (state, action) => {
+      state.cartData = state.cartData.filter((item) => {
+        return item.id === action.payload ? (item.qty += 1) : item;
+      });
+    },
+    decreseItem: (state, action) => {
+      state.cartData = state.cartData.filter((item) => {
+        return item.id === action.payload ? (item.qty -= 1) : item;
+      });
     },
   },
 });
 
-export const priceSlice = createSlice({
-  name: "price",
-  initialState: {
-    amount: 0,
-  },
-  reducers: {
-    getIncPrice: (state, Price) => {
-      state.amount += Price.payload;
-    },
-    getDecPrice: (state, Price) => {
-      state.amount -= Price.payload;
-    },
-  },
-});
-
-export const discountSlice = createSlice({
-  name: "Discount",
-  initialState: {
-    offer: 0,
-  },
-  reducers: {
-    getIncDiscount: (state, offers) => {
-      state.offer += offers.payload;
-    },
-    getDecDiscount: (state, offers) => {
-      state.offer -= offers.payload;
-    },
-  },
-});
-
-export const { getIncItem, getDecItem } = itemSlice.actions;
-export const { getIncPrice, getDecPrice } = priceSlice.actions;
-export const { getIncDiscount, getDecDiscount } = discountSlice.actions;
+export const { addData, removeItem, increseItem, decreseItem } =
+  itemSlice.actions;

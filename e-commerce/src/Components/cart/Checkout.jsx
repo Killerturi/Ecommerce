@@ -1,40 +1,22 @@
-import { Discount } from "@mui/icons-material";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./cart.css";
 
 const Checkout = (props) => {
-  const { cartItemData } = props;
+  const { cartData } = props;
 
-  const { item } = useSelector((state) => {
-    return state.ItemNo;
-  });
+  const TotalItem = cartData.map((val) => val.qty).reduce((a, b) => a + b, 0);
+  const FINAL_PRICE = cartData
+    .map((val) => val.price * val.qty)
+    .reduce((a, b) => a + b, 0);
 
-  const { amount } = useSelector((state) => {
-    return state.price;
-  });
+  const FINAL_DISCOUNT = cartData
+    .map((val) => val.discountPercentage * val.qty)
+    .reduce((a, b) => a + b, 0);
 
-  const { offer } = useSelector((state) => {
-    return state.Discount;
-  });
+  const TOTAL_AMOUNT = ((FINAL_PRICE - FINAL_DISCOUNT) * 70).toFixed();
 
-  // console.log(typeof offer);
-
-  const finalPrice = cartItemData
-    .map((val) => val.price)
-    .reduce((a, b) => {
-      return b + a;
-    }, 0);
-
-  const finalDiscount = (finalPrice * 31) / 100;
-  const totalAmount = (
-    (finalPrice - finalDiscount - offer + amount) *
-    70
-  ).toFixed();
-  // console.log(totalAmount);
-
-  // console.log(parseInt(finalDiscount + offer) * 70);
   return (
     <>
       <div className="p-2">
@@ -45,18 +27,13 @@ const Checkout = (props) => {
         <div className="cart_total px-3 py-2">
           <p>
             Price(
-            <span className="font-medium">
-              {cartItemData.length + item} Item
-            </span>{" "}
-            )
+            <span className="font-medium">{TotalItem} Item</span> )
           </p>
-          <p className="font-medium">₹{(finalPrice + amount) * 70}</p>
+          <p className="font-medium">₹{FINAL_PRICE * 70}</p>
         </div>
         <div className="cart_total px-3 py-2">
           <p>Discount</p>
-          <p className="text-red-700">
-            − ₹{((finalDiscount + offer) * 70).toFixed()}
-          </p>
+          <p className="text-red-700">− ₹{(FINAL_DISCOUNT * 70).toFixed()}</p>
         </div>
         <div className="cart_total px-3 py-2">
           <p>Delivery Charges</p>
@@ -65,7 +42,7 @@ const Checkout = (props) => {
         <hr />
         <div className="cart_total px-3 py-2">
           <p className="font-bold text-2xl">Total Amount</p>
-          <p className="font-bold text-xl">₹{totalAmount}</p>
+          <p className="font-bold text-xl">₹{TOTAL_AMOUNT}</p>
         </div>
         <hr />
         <div>

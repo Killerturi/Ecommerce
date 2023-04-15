@@ -33,6 +33,10 @@ const Navbar = () => {
     return state.name;
   });
 
+  const { cartData } = useSelector((state) => {
+    return state.AddData;
+  });
+
   const dispatch = useDispatch();
   const history = useNavigate();
 
@@ -77,8 +81,10 @@ const Navbar = () => {
               </span>
             </div>
             <Link to="/cart" className="link cart">
-              <span>Cart</span>
               <ShoppingCartIcon className="icons" />
+              <span>
+                <sup>{cartData.length}</sup>
+              </span>
             </Link>
             <div className="login_section">
               {!authentication.length > 0 ? (

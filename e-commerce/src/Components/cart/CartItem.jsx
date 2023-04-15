@@ -4,44 +4,19 @@ import { toast } from "react-toastify";
 import AddSharpIcon from "@mui/icons-material/AddSharp";
 import RemoveSharpIcon from "@mui/icons-material/RemoveSharp";
 import { useDispatch } from "react-redux";
-import {
-  getDecDiscount,
-  getDecItem,
-  getDecPrice,
-  getIncDiscount,
-  getIncItem,
-  getIncPrice,
-} from "../Redux/Cart/cart";
+import { decreseItem, increseItem, removeItem } from "../Redux/Cart/cart";
 
 const CartItem = (props) => {
-  const {
-    images,
-    title,
-    description,
-    price,
-    discountPercentage,
-    id,
-    DeleteRequest,
-  } = props;
-  const [count, setCount] = useState(1);
+  const { images, title, description, price, discountPercentage, id, qty } =
+    props;
   const dispatch = useDispatch();
-  let discount = (price * 31) / 100;
-
-  console.log(typeof discount);
 
   const handleInc = () => {
-    setCount(count + 1);
-    dispatch(getIncItem());
-    dispatch(getIncPrice(price));
-    dispatch(getIncDiscount(discount));
+    dispatch(increseItem(id));
   };
   const handleDec = () => {
-    if (count > 1) {
-      // console.log(number);
-      setCount(count - 1);
-      dispatch(getDecItem());
-      dispatch(getDecPrice(price));
-      dispatch(getDecDiscount(discount));
+    if (qty > 1) {
+      dispatch(decreseItem(id));
     }
   };
 
@@ -70,7 +45,7 @@ const CartItem = (props) => {
                 <button className="cartItem_btn bg-red-500" onClick={handleDec}>
                   <RemoveSharpIcon />
                 </button>
-                <p className="px-4 font-bold">{count}</p>
+                <p className="px-4 font-bold">{qty}</p>
                 <button
                   className="cartItem_btn bg-orange-400"
                   onClick={handleInc}
@@ -82,17 +57,16 @@ const CartItem = (props) => {
                 <p
                   className="font-medium hover:text-red-500 cursor-pointer "
                   onClick={() => {
-                    DeleteRequest(id).then((response) => {
-                      toast.success("Delete Item Successfully", {
-                        position: "top-center",
-                        autoClose: 3000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-                      });
+                    dispatch(removeItem(id));
+                    toast.success("Delete Item Successfully", {
+                      position: "top-center",
+                      autoClose: 3000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "dark",
                     });
                   }}
                 >
