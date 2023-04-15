@@ -2,7 +2,7 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 export const authSlice = createSlice({
   name: "auth",
-  initialState: [1],
+  initialState: [],
   reducers: {
     getAuth: (state, user) => {
       state.push(user.payload);
